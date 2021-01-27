@@ -19,6 +19,7 @@ sudo pacman -S --needed --noconfirm qt5-tools
 sudo pacman -S --needed --noconfirm qt5-translations
 sudo pacman -S --needed --noconfirm git
 sudo pacman -S --needed --noconfirm boost
+sudo pacman -S --needed --noconfirm libpwquality
 
 # from my repo at https://wizd3m.github.io/wadam-repo
 sudo pacman -S --needed --noconfirm mkinitcpio-openswap
