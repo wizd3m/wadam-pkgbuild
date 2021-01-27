@@ -2,7 +2,7 @@
 # Ex-Maintainer: 	Jeroen Bollen <jbinero at gmail dot comau>
 
 pkgname=ckbcomp
-pkgver=1.198
+pkgver=1.199
 pkgrel=1
 pkgdesc="Compile a XKB keyboard description to a keymap suitable for loadkeys or kbdcontrol"
 arch=(any)
