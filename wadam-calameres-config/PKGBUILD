@@ -3,8 +3,8 @@
 
 pkgname=wadam-calamares-config
 _destname1="/etc"
-pkgver=27.01
-pkgrel=8
+pkgver=28.01
+pkgrel=1
 pkgdesc="calamares for Wadam Linux"
 arch=('any')
 url="https://github.com/wizd3m"
