@@ -1,5 +1,6 @@
 # Maintainer: Geertje van Dijk <tgurl@wadam.org>
 pkgname=wadam-dwm
+_pkgname=wadam-dwm
 _destname1="/etc/skel/.config"
 _destname2="/usr/share/doc/dwm/"
 _destname3="/usr/share/licenses/dwm/"
@@ -31,7 +32,7 @@ package() {
     make PREFIX=/usr DESTDIR="$pkgdir" install
 
     install -dm755 ${pkgdir}${_licensedir}{$_pkgname}
-    install -m644 ${srcdir}/${_pkgname}/LICENSE ${pkgname}${_licensedir}{$_pkgname}
+    install -m644 ${srcdir}/${_pkgname}/LICENSE ${pkgname}${_licensedir}${_pkgname}
 
     install -dm755 ${pkgdir}${_destname1}
     cp -r ${srcdir}/${_pkgname}${_destname1}* ${pkgdir}${_destname1}
