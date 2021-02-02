@@ -1,0 +1,53 @@
+# Maintainer: Geertje van Dijk <tgurl@wadam.org>
+pkgname=wadam-dwm
+_destname1="/etc/skel/.config"
+_destname2="/usr/share/doc/dwm/"
+_destname3="/usr/share/licenses/dwm/"
+_destname4="/usr/share/man/man1"
+_destname5="/usr/share/xsessions"
+_licensedir="/usr/share/wadamlinux/licenses"
+pkgver=02.02
+pkgrel=1
+pkgdesc="DWM for Wadam Linux"
+arch=('any')
+url="https://github.com/wizd3m/wadam-dwm"
+license=('GPL3')
+makedepends=('git')
+depends=()
+conflicts=('alci-dwm')
+provides=("${pkgname}")
+options=(!strip !emptydirs)
+source=(${_pkgname}::"git+https://github.com/wizd3m/${_pkgname}.git")
+sha256sums('SKIP')
+install='readme.install'
+
+build() {
+    cd "$srcdir/$_pkgname/etc/skel/.config/wadam-dwm/"
+    make X11INC=/usr/include/X11 X11LIB=/usr/lib/X11 FREETYPEINC=/usr/include/freetype2
+}
+
+package() {
+    cd "$srcdir/$_pkgname/etc/skel/.config/wadam-dwm"
+    make PREFIX=/usr DESTDIR="$pkgdir" install
+
+    install -dm755 ${pkgdir}${_licensedir}{$_pkgname}
+    install -m644 ${srcdir}/${_pkgname}/LICENSE ${pkgname}${_licensedir}{$_pkgname}
+
+    install -dm755 ${pkgdir}${_destname1}
+    cp -r ${srcdir}/${_pkgname}${_destname1}* ${pkgdir}${_destname1}
+
+    # install -dm755 ${pkgdir}${_destname2}
+    # cp -r ${srcdir}/${_pkgname}${_destname2}* ${pkgdir}${_destname2}
+
+    # install -dm755 ${pkgdir}${_destname3}
+    # cp -r ${srcdir}/${_pkgname}${_destname3} ${pkgdir}${_destname3}
+
+    # install -dm755 ${pkgdir}${_destname4}
+    # cp -r ${srcdir}/${_pkgname}${_destname4} ${pkgdir}${_destname4}
+
+    install -dm755 ${pkgdir}${_destname5}
+    cp -r ${srcdir}/${_pkgname}${_destname5}* ${pkgdir}${_destname5}
+    mv ${pkgdir}${_destname5}/dwm.desktop ${pkgdir}${_destname5}/dwmwadam.desktop
+    sed -i "s/Exec=dwm/Exec=dwmwadam/g" ${pkgdir}${_destname5}/dwmwadam.desktop
+    sed -i "s/Name=Dwm/Name=Dwmwadam/g" ${pkgdir}${_destname5}/dwmwadam.desktop
+}
