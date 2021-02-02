@@ -18,7 +18,7 @@ conflicts=('alci-dwm')
 provides=("${pkgname}")
 options=(!strip !emptydirs)
 source=(${_pkgname}::"git+https://github.com/wizd3m/${_pkgname}.git")
-sha256sums('SKIP')
+sha256sums=('SKIP')
 install='readme.install'
 
 build() {
