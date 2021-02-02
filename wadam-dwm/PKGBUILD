@@ -31,8 +31,8 @@ package() {
     cd "$srcdir/$_pkgname/etc/skel/.config/wadam-dwm"
     make PREFIX=/usr DESTDIR="$pkgdir" install
 
-    install -dm755 ${pkgdir}${_licensedir}{$_pkgname}
-    install -m644 ${srcdir}/${_pkgname}/LICENSE ${pkgname}${_licensedir}${_pkgname}
+    # install -dm755 ${pkgdir}${_licensedir}{$_pkgname}
+    # install -m644 ${srcdir}/${_pkgname}/LICENSE ${pkgname}${_licensedir}${_pkgname}
 
     install -dm755 ${pkgdir}${_destname1}
     cp -r ${srcdir}/${_pkgname}${_destname1}* ${pkgdir}${_destname1}
