@@ -1,12 +1,12 @@
 # Maintainer: Geertje van Dijk <tgurl@wadam.org>
 pkgname=wadam-dwm
 _pkgname=wadam-dwm
-_destname1="/etc/skel/.config"
+_destname1="/etc/skel/.config/"
 _destname2="/usr/share/doc/dwm/"
 _destname3="/usr/share/licenses/dwm/"
-_destname4="/usr/share/man/man1"
-_destname5="/usr/share/xsessions"
-_licensedir="/usr/share/wadamlinux/licenses"
+_destname4="/usr/share/man/man1i/"
+_destname5="/usr/share/xsessions/"
+_licensedir="/usr/share/wadamlinux/licenses/"
 pkgver=02.02
 pkgrel=1
 pkgdesc="DWM for Wadam Linux"
